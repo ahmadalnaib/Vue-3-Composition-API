@@ -9,16 +9,13 @@
 </template>
 
 
-<script>
-export default{
-  data(){
-    return{
-      transactions: [
-        { id: 1, text: "Cash", amount: -400 },
-        { id: 2, text: "Free", amount: 700 },
-      ],
-    }
-  },
-  }
+<script setup>
+import { defineProps } from 'vue';
 
+const props=defineProps({
+  transactions:{
+    type:Array,
+    required:true
+  }
+})
 </script>
