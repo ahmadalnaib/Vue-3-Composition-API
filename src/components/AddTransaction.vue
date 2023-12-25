@@ -24,6 +24,9 @@ import {useToast} from 'vue-toastification'
 const text=ref('');
 const amount=ref('');
 
+
+const emit=defineEmits(['transactionSubmitted']);
+
 const toast=useToast();
 
 const onSubmit=()=>{
@@ -32,6 +35,13 @@ if(!text.value || !amount.value){
   return;
 }
 
+const transactionData={
+  id:Math.floor(Math.random()*100000000),
+  text:text.value,
+  amount:parseFloat(amount.value)
+}
+
+emit('transactionSubmitted',transactionData)
 
 text.value='';
 amount.value='';
